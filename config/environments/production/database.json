@@ -2,10 +2,15 @@
   "defaultConnection": "default",
   "connections": {
     "default": {
-      "connector": "mongoose",
+      "connector": "strapi-hook-mongoose",
       "settings": {
-        "uri": "${process.env.DATABASE_URI}",
-        "database": "${process.env.DATABASE_NAME}"
+        "client": "mongo",
+        "host": "cluster0-ex2uu.azure.mongodb.net",
+        "port": 27017,
+        "database": "bemo",
+        "username": "MasterBirdy",
+        "password": "p2rESmZS",
+        "srv": true
       },
       "options": {
         "ssl": true
