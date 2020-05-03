@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contactpages",
+      "handler": "Contactpage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contactpages/count",
+      "handler": "Contactpage.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/contactpages/:_id",
+      "handler": "Contactpage.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contactpages",
+      "handler": "Contactpage.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contactpages/:_id",
+      "handler": "Contactpage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contactpages/:_id",
+      "handler": "Contactpage.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

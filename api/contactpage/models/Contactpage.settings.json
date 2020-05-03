@@ -1,0 +1,39 @@
+{
+  "connection": "default",
+  "collectionName": "contactpage",
+  "info": {
+    "name": "contactpage",
+    "description": "This is where information for the Contact Page goes."
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "required": true,
+      "type": "text"
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "no_index_enabled": {
+      "type": "boolean"
+    },
+    "listed_email": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

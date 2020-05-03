@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/analytics",
+      "handler": "Analytics.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/analytics/count",
+      "handler": "Analytics.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/analytics/:_id",
+      "handler": "Analytics.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/analytics",
+      "handler": "Analytics.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/analytics/:_id",
+      "handler": "Analytics.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/analytics/:_id",
+      "handler": "Analytics.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

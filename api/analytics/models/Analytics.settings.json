@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "analytics",
+  "info": {
+    "name": "analytics",
+    "description": "Turn on Google and Facebook Analytics here by entering their respective tags."
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "google_analytics": {
+      "type": "string"
+    },
+    "facebook_analytics": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,932 @@
+"""
+Turn on Google and Facebook Analytics here by entering their respective tags.
+"""
+type Analytics {
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  google_analytics: String
+  facebook_analytics: String
+}
+
+type AnalyticsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type AnalyticsConnection {
+  values: [Analytics]
+  groupBy: AnalyticsGroupBy
+  aggregate: AnalyticsAggregator
+}
+
+type AnalyticsConnection_id {
+  key: ID
+  connection: AnalyticsConnection
+}
+
+type AnalyticsConnectionCreatedAt {
+  key: DateTime
+  connection: AnalyticsConnection
+}
+
+type AnalyticsConnectionFacebook_analytics {
+  key: String
+  connection: AnalyticsConnection
+}
+
+type AnalyticsConnectionGoogle_analytics {
+  key: String
+  connection: AnalyticsConnection
+}
+
+type AnalyticsConnectionId {
+  key: ID
+  connection: AnalyticsConnection
+}
+
+type AnalyticsConnectionUpdatedAt {
+  key: DateTime
+  connection: AnalyticsConnection
+}
+
+type AnalyticsGroupBy {
+  _id: [AnalyticsConnection_id]
+  id: [AnalyticsConnectionId]
+  createdAt: [AnalyticsConnectionCreatedAt]
+  updatedAt: [AnalyticsConnectionUpdatedAt]
+  google_analytics: [AnalyticsConnectionGoogle_analytics]
+  facebook_analytics: [AnalyticsConnectionFacebook_analytics]
+}
+
+input AnalyticsInput {
+  google_analytics: String
+  facebook_analytics: String
+}
+
+"""This is where information for the Contact Page goes."""
+type Contactpage {
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String
+  content: String!
+  meta_title: String
+  meta_description: String
+  image: UploadFile
+  no_index_enabled: Boolean
+  listed_email: String!
+}
+
+type ContactpageAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ContactpageConnection {
+  values: [Contactpage]
+  groupBy: ContactpageGroupBy
+  aggregate: ContactpageAggregator
+}
+
+type ContactpageConnection_id {
+  key: ID
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionContent {
+  key: String
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionCreatedAt {
+  key: DateTime
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionId {
+  key: ID
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionImage {
+  key: ID
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionListed_email {
+  key: String
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionMeta_description {
+  key: String
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionMeta_title {
+  key: String
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionNo_index_enabled {
+  key: Boolean
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionTitle {
+  key: String
+  connection: ContactpageConnection
+}
+
+type ContactpageConnectionUpdatedAt {
+  key: DateTime
+  connection: ContactpageConnection
+}
+
+type ContactpageGroupBy {
+  _id: [ContactpageConnection_id]
+  id: [ContactpageConnectionId]
+  createdAt: [ContactpageConnectionCreatedAt]
+  updatedAt: [ContactpageConnectionUpdatedAt]
+  title: [ContactpageConnectionTitle]
+  content: [ContactpageConnectionContent]
+  meta_title: [ContactpageConnectionMeta_title]
+  meta_description: [ContactpageConnectionMeta_description]
+  image: [ContactpageConnectionImage]
+  no_index_enabled: [ContactpageConnectionNo_index_enabled]
+  listed_email: [ContactpageConnectionListed_email]
+}
+
+input ContactpageInput {
+  title: String
+  content: String!
+  meta_title: String
+  meta_description: String
+  image: ID
+  no_index_enabled: Boolean
+  listed_email: String!
+}
+
+input createAnalyticsInput {
+  data: AnalyticsInput
+}
+
+type createAnalyticsPayload {
+  analytic: Analytics
+}
+
+input createContactpageInput {
+  data: ContactpageInput
+}
+
+type createContactpagePayload {
+  contactpage: Contactpage
+}
+
+input createHomeInput {
+  data: HomeInput
+}
+
+type createHomePayload {
+  home: Home
+}
+
+input createResponseInput {
+  data: ResponseInput
+}
+
+type createResponsePayload {
+  response: Response
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""
+The `DateTime` scalar represents a date and time following the ISO 8601 standard
+"""
+scalar DateTime
+
+input deleteAnalyticsInput {
+  where: InputID
+}
+
+type deleteAnalyticsPayload {
+  analytic: Analytics
+}
+
+input deleteContactpageInput {
+  where: InputID
+}
+
+type deleteContactpagePayload {
+  contactpage: Contactpage
+}
+
+input deleteHomeInput {
+  where: InputID
+}
+
+type deleteHomePayload {
+  home: Home
+}
+
+input deleteResponseInput {
+  where: InputID
+}
+
+type deleteResponsePayload {
+  response: Response
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input editAnalyticsInput {
+  google_analytics: String
+  facebook_analytics: String
+}
+
+input editContactpageInput {
+  title: String
+  content: String
+  meta_title: String
+  meta_description: String
+  image: ID
+  no_index_enabled: Boolean
+  listed_email: String
+}
+
+input editFileInput {
+  name: String
+  hash: String
+  sha256: String
+  ext: String
+  mime: String
+  size: String
+  url: String
+  provider: String
+  public_id: String
+  related: [ID]
+}
+
+input editHomeInput {
+  title: String
+  content: String
+  image: ID
+  meta_title: String
+  meta_description: String
+  no_index_enabled: Boolean
+}
+
+input editResponseInput {
+  name: String
+  email: String
+  how_can_we_help: String
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input FileInput {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related: [ID]
+}
+
+"""This is where information for the Home page goes."""
+type Home {
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  content: String!
+  image: UploadFile
+  meta_title: String
+  meta_description: String
+  no_index_enabled: Boolean
+}
+
+type HomeAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type HomeConnection {
+  values: [Home]
+  groupBy: HomeGroupBy
+  aggregate: HomeAggregator
+}
+
+type HomeConnection_id {
+  key: ID
+  connection: HomeConnection
+}
+
+type HomeConnectionContent {
+  key: String
+  connection: HomeConnection
+}
+
+type HomeConnectionCreatedAt {
+  key: DateTime
+  connection: HomeConnection
+}
+
+type HomeConnectionId {
+  key: ID
+  connection: HomeConnection
+}
+
+type HomeConnectionImage {
+  key: ID
+  connection: HomeConnection
+}
+
+type HomeConnectionMeta_description {
+  key: String
+  connection: HomeConnection
+}
+
+type HomeConnectionMeta_title {
+  key: String
+  connection: HomeConnection
+}
+
+type HomeConnectionNo_index_enabled {
+  key: Boolean
+  connection: HomeConnection
+}
+
+type HomeConnectionTitle {
+  key: String
+  connection: HomeConnection
+}
+
+type HomeConnectionUpdatedAt {
+  key: DateTime
+  connection: HomeConnection
+}
+
+type HomeGroupBy {
+  _id: [HomeConnection_id]
+  id: [HomeConnectionId]
+  createdAt: [HomeConnectionCreatedAt]
+  updatedAt: [HomeConnectionUpdatedAt]
+  title: [HomeConnectionTitle]
+  content: [HomeConnectionContent]
+  image: [HomeConnectionImage]
+  meta_title: [HomeConnectionMeta_title]
+  meta_description: [HomeConnectionMeta_description]
+  no_index_enabled: [HomeConnectionNo_index_enabled]
+}
+
+input HomeInput {
+  title: String!
+  content: String!
+  image: ID
+  meta_title: String
+  meta_description: String
+  no_index_enabled: Boolean
+}
+
+input InputID {
+  id: ID!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Analytics | createAnalyticsPayload | updateAnalyticsPayload | deleteAnalyticsPayload | AnalyticsConnection | AnalyticsAggregator | AnalyticsGroupBy | AnalyticsConnection_id | AnalyticsConnectionId | AnalyticsConnectionCreatedAt | AnalyticsConnectionUpdatedAt | AnalyticsConnectionGoogle_analytics | AnalyticsConnectionFacebook_analytics | Contactpage | createContactpagePayload | updateContactpagePayload | deleteContactpagePayload | ContactpageConnection | ContactpageAggregator | ContactpageGroupBy | ContactpageConnection_id | ContactpageConnectionId | ContactpageConnectionCreatedAt | ContactpageConnectionUpdatedAt | ContactpageConnectionTitle | ContactpageConnectionContent | ContactpageConnectionMeta_title | ContactpageConnectionMeta_description | ContactpageConnectionImage | ContactpageConnectionNo_index_enabled | ContactpageConnectionListed_email | Home | createHomePayload | updateHomePayload | deleteHomePayload | HomeConnection | HomeAggregator | HomeGroupBy | HomeConnection_id | HomeConnectionId | HomeConnectionCreatedAt | HomeConnectionUpdatedAt | HomeConnectionTitle | HomeConnectionContent | HomeConnectionImage | HomeConnectionMeta_title | HomeConnectionMeta_description | HomeConnectionNo_index_enabled | Response | createResponsePayload | updateResponsePayload | deleteResponsePayload | ResponseConnection | ResponseAggregator | ResponseGroupBy | ResponseConnection_id | ResponseConnectionId | ResponseConnectionCreatedAt | ResponseConnectionUpdatedAt | ResponseConnectionName | ResponseConnectionEmail | ResponseConnectionHow_can_we_help | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionId | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+
+type Mutation {
+  createAnalytics(input: createAnalyticsInput): createAnalyticsPayload
+  updateAnalytics(input: updateAnalyticsInput): updateAnalyticsPayload
+  deleteAnalytics(input: deleteAnalyticsInput): deleteAnalyticsPayload
+  createContactpage(input: createContactpageInput): createContactpagePayload
+  updateContactpage(input: updateContactpageInput): updateContactpagePayload
+  deleteContactpage(input: deleteContactpageInput): deleteContactpagePayload
+  createHome(input: createHomeInput): createHomePayload
+  updateHome(input: updateHomeInput): updateHomePayload
+  deleteHome(input: deleteHomeInput): deleteHomePayload
+  createResponse(input: createResponseInput): createResponsePayload
+  updateResponse(input: updateResponseInput): updateResponsePayload
+  deleteResponse(input: deleteResponseInput): deleteResponsePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
+}
+
+type Query {
+  analytic(id: ID!): Analytics
+  analytics(sort: String, limit: Int, start: Int, where: JSON): [Analytics]
+  analyticsConnection(sort: String, limit: Int, start: Int, where: JSON): AnalyticsConnection
+  contactpage(id: ID!): Contactpage
+  contactpages(sort: String, limit: Int, start: Int, where: JSON): [Contactpage]
+  contactpagesConnection(sort: String, limit: Int, start: Int, where: JSON): ContactpageConnection
+  home(id: ID!): Home
+  homes(sort: String, limit: Int, start: Int, where: JSON): [Home]
+  homesConnection(sort: String, limit: Int, start: Int, where: JSON): HomeConnection
+  response(id: ID!): Response
+  responses(sort: String, limit: Int, start: Int, where: JSON): [Response]
+  responsesConnection(sort: String, limit: Int, start: Int, where: JSON): ResponseConnection
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+"""All responses for the form can be seen here."""
+type Response {
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  email: String
+  how_can_we_help: String
+}
+
+type ResponseAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ResponseConnection {
+  values: [Response]
+  groupBy: ResponseGroupBy
+  aggregate: ResponseAggregator
+}
+
+type ResponseConnection_id {
+  key: ID
+  connection: ResponseConnection
+}
+
+type ResponseConnectionCreatedAt {
+  key: DateTime
+  connection: ResponseConnection
+}
+
+type ResponseConnectionEmail {
+  key: String
+  connection: ResponseConnection
+}
+
+type ResponseConnectionHow_can_we_help {
+  key: String
+  connection: ResponseConnection
+}
+
+type ResponseConnectionId {
+  key: ID
+  connection: ResponseConnection
+}
+
+type ResponseConnectionName {
+  key: String
+  connection: ResponseConnection
+}
+
+type ResponseConnectionUpdatedAt {
+  key: DateTime
+  connection: ResponseConnection
+}
+
+type ResponseGroupBy {
+  _id: [ResponseConnection_id]
+  id: [ResponseConnectionId]
+  createdAt: [ResponseConnectionCreatedAt]
+  updatedAt: [ResponseConnectionUpdatedAt]
+  name: [ResponseConnectionName]
+  email: [ResponseConnectionEmail]
+  how_can_we_help: [ResponseConnectionHow_can_we_help]
+}
+
+input ResponseInput {
+  name: String
+  email: String
+  how_can_we_help: String
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input updateAnalyticsInput {
+  where: InputID
+  data: editAnalyticsInput
+}
+
+type updateAnalyticsPayload {
+  analytic: Analytics
+}
+
+input updateContactpageInput {
+  where: InputID
+  data: editContactpageInput
+}
+
+type updateContactpagePayload {
+  contactpage: Contactpage
+}
+
+input updateHomeInput {
+  where: InputID
+  data: editHomeInput
+}
+
+type updateHomePayload {
+  home: Home
+}
+
+input updateResponseInput {
+  where: InputID
+  data: editResponseInput
+}
+
+type updateResponsePayload {
+  response: Response
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  public_id: String
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPublic_id {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSha256 {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  _id: [UploadFileConnection_id]
+  id: [UploadFileConnectionId]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  hash: [UploadFileConnectionHash]
+  sha256: [UploadFileConnectionSha256]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  provider: [UploadFileConnectionProvider]
+  public_id: [UploadFileConnectionPublic_id]
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+type UsersPermissionsMe {
+  _id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  _id: ID!
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  _id: ID!
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  _id: [UsersPermissionsRoleConnection_id]
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsUser {
+  _id: ID!
+  id: ID!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  _id: [UsersPermissionsUserConnection_id]
+  id: [UsersPermissionsUserConnectionId]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}

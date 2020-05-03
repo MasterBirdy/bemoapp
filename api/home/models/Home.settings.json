@@ -1,0 +1,36 @@
+{
+  "connection": "default",
+  "collectionName": "home",
+  "info": {
+    "name": "home",
+    "description": "This is where information for the Home page goes."
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "required": true,
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "no_index_enabled": {
+      "type": "boolean"
+    }
+  }
+}

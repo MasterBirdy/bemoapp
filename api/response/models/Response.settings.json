@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "response",
+  "info": {
+    "name": "response",
+    "description": "All responses for the form can be seen here."
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "how_can_we_help": {
+      "type": "text"
+    }
+  }
+}
